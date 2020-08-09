@@ -5,7 +5,10 @@ const baseAPI = {
 }
 
 const Axios = axios.create({
-    baseURL: baseAPI.def
+    baseURL: baseAPI.def,
+    headers: {
+        "content-type": "application/json"
+    }
 })
 
 // 请求前拦截器
@@ -36,6 +39,13 @@ export function sendMesg(api, type, params) {
                 return reject(e);
             })
         } else {
+            // axios({
+            //     method: 'post',
+            //     url: `${baseAPI.def}${api}`,
+            //     data: params,
+            // }).then(res => {
+            //     return resolve(res.data);
+            // })
             Axios.post(api, params).then(res => {
                 return resolve(res.data);
             })

@@ -12,7 +12,11 @@ import { sendMesg } from './api/index.js'
 export default {
   name: 'App',
   created() {
-    sendMesg('/yahha', 'get', {'name': 'yahh'}).then(res => {
+    sendMesg('/writeRecord', 'get', {'name': 'yahoho'}).then(res => {
+      console.warn(res);
+    });
+
+    sendMesg('/readRecord', 'post', {'name': 'hohoya'}).then(res => {
       console.warn(res);
     })
   }
